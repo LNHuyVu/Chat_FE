@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body{
+    /* background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url("https://www.wallpaperbetter.com/wallpaper/609/888/22/blue-ocean-splash-2K-wallpaper.jpg"); */
+    /* background: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)),url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Nextcloud_Logo.svg/1200px-Nextcloud_Logo.svg.png"); */
+    background: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)),url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Nextcloud_Logo.svg/1200px-Nextcloud_Logo.svg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+::-webkit-scrollbar{
+    cursor: pointer;
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    cursor: pointer;
+    background: #555;
+}
+::-webkit-slider-thumb{
+    background: #121212;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #242424;
+}
