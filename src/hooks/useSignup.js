@@ -23,7 +23,7 @@ const useSignup = () => {
     });
     if (!success) return;
     try {
-      const res = await fetchApi(httpComon + "/auth/signup", {
+      const res = await fetchApi(httpComon + "auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

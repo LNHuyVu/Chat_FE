@@ -13,7 +13,7 @@ const useGetMessages = () => {
       setLoading(true);
       try {
         const res = await fetchApi(
-          `${httpComon}messages/${selectedConversation._id}`,
+          `${httpComon}messages/${selectedConversation._id}`
         );
         const data = await res.json();
         if (data.error) throw new Error(data.error);

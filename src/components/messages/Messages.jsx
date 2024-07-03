@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import useGetMessages from "../../hooks/useGetMessages";
 import MessageSkeleton from "../skeletons/MessageSkeleton";
 import Message from "./Message";
@@ -8,11 +8,22 @@ const Messages = () => {
   const { messages, loading } = useGetMessages();
   useListenMessage();
   const lastMessageRef = useRef();
+
+  // State để theo dõi sự thay đổi trong danh sách messages
+  const [shouldScrollToBottom, setShouldScrollToBottom] = useState(true);
+
   useEffect(() => {
     setTimeout(() => {
       lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+      setShouldScrollToBottom(false);
     }, 100);
-  }, []);
+  }, [messages, shouldScrollToBottom]);
+  // Effect để đảm bảo cuộn xuống cuối khi ban đầu tải dữ liệu
+  useEffect(() => {
+    if (!loading && messages.length > 0) {
+      lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [loading, messages]);
   return (
     <div className="px-4 flex-1 overflow-auto bg-info">
       {!loading &&
